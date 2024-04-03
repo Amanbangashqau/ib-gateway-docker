@@ -1,0 +1,32 @@
+version: "3.4"
+
+services:
+  ib-gateway:
+    restart: always
+    build:
+      context: ./stable
+    environment:
+      TWS_USERID: dg520paper
+      TWS_PASSWORD: te9Bje?Ccr
+      TRADING_MODE: ${TRADING_MODE:-paper}
+      VNC_SERVER_PASSWORD: Summer2018
+      READ_ONLY_API: no
+    ports:
+      - "4001:4001"
+      - "4002:4002"
+      - "5900:5900"
+
+    networks:
+      - my_network
+
+  py:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - ib-gateway
+    networks:
+      - my_network
+
+networks:
+  my_network:
