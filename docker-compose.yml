@@ -6,10 +6,10 @@ services:
     build:
       context: ./stable
     environment:
-      TWS_USERID: dg520paper
-      TWS_PASSWORD: te9Bje?Ccr
+      TWS_USERID: 
+      TWS_PASSWORD: 
       TRADING_MODE: ${TRADING_MODE:-paper}
-      VNC_SERVER_PASSWORD: Summer2018
+      VNC_SERVER_PASSWORD: 
       READ_ONLY_API: no
     ports:
       - "4001:4001"
